@@ -1,20 +1,17 @@
-README
+# Epidemic Spread Simulator (SIR Model) 🦠
 
-Popis programu
-    Vytvoril som program, ktorý na základe vstupných parametrov sa snazí predpovedať šírenie epidémie pomocou modelu SIR a následne ich porovná s dátami z CSV súboru.
-    Tieto výsledky sa zobrazia na grafe, reálne dáta sú plnou čiarou a dáta z modelu čiarkovanou.
+> A C program that predicts the spread of an epidemic using the mathematical SIR model and compares it with real-world data via SVG visualization.
 
-Postup programu
-    1. Program si vyselectuje parametre z príkazu a uloží ich.
-    2. Následne si otvorí CSV súbor, prečíta ho a uloží si dáta.
-    3. Program si vytvorí premenné ktoré potrebuje na výpočeť SIR modelu.
-    4. Program simuluje pomocou modelu SIR, ukladá pomery do dynamicky alokovaného poľa.
-    5  Nakreslí sa graf (Reálne dáta sa prevádzaju do pomeru).
+This project simulates how an infection spreads through a population based on custom input parameters. It reads actual historical data from a CSV file, calculates the theoretical spread using the SIR (Susceptible, Infectious, Recovered) model, and generates a comparative graph.
 
-Spustenie programu
-    1. V termináli si otvoríme priečinok kde sa nachádza kód a napíšeme "make".
-    2. Pre spustenie odporúčam použiť príkaz: ./epidemic --real_data test.csv --infectious_days 8 --infections_per_day 0.3 --output graf.svg
-    3. Tento príkaz používa parametre obdobné chorobe Covid-19 a má CSV súbor s dátami z 1000 obyvateľov počas 31dní.
+## ✨ Features & Program Flow
+- **CLI Configuration:** Parses command-line arguments to set simulation parameters dynamically.
+- **Data Processing:** Reads and extracts real epidemic data from a provided `.csv` file.
+- **SIR Simulation:** Computes the mathematical model using dynamically allocated arrays to store daily ratios.
+- **Data Visualization:** Generates a custom `.svg` graph from scratch. Real data is plotted with a solid line, while the model's prediction uses a dashed line.
+- **Precision Rendering:** Handles coordinate scaling by computing mathematical ratios in `double` and casting to `int` for pixel-accurate SVG rendering.
 
-Poznámka:
-    V kóde sa pri generácii grafu často používajú pretypovania double a int, double sa používa pre výpočet mierky a pomeru, int sa používa pre vykreslenie pixelov.
+## 🛠️ Tech Stack
+* **Language:** C
+* **Concepts:** Mathematical Modeling, Dynamic Memory Allocation, File I/O (CSV parsing, SVG generation)
+* **Build Tool:** Makefile
